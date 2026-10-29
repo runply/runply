@@ -2,6 +2,8 @@
 
 Use Node 24 LTS. Install with `npm ci`, then run `npm run check`. The tests do not require provider keys. `npm run acceptance` checks the packed package from a fresh starter directory; npm may download dependencies but no model provider is contacted.
 
+Type checking builds the production entry points first: integration tests intentionally import compiled modules. The `pretypecheck` hook keeps `npm run check` valid on a clean checkout without an existing build directory.
+
 These npm commands maintain the framework itself. Application-facing examples must use the Runply CLI. `npm run acceptance:inspector` exercises the actual browser UI, rebuild behavior, and artifact output. It uses an installed Chrome on macOS when present, or Playwright Chromium. The CI browser job installs Chromium separately and does not publish anything.
 
 Application behavior and business tools live in `src/example.ts`. Framework contracts are in `src/contracts.ts`, execution in `src/runtime.ts`, and the CLI in `src/cli.ts`. Tests include real provider adapter code driven by local protocol fixtures, shared store contracts, and child-process interruption checks.

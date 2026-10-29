@@ -1,0 +1,12 @@
+node_modules/
+dist/
+coverage/
+.runply/
+.karateke/
+.switchlane/
+artifacts/
+*.tgz
+.DS_Store
+.env
+.env.*
+!.env.example
